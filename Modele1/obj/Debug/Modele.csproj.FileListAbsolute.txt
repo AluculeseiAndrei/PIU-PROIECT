@@ -1,0 +1,6 @@
+D:\PIU PROJECT\Modele1\bin\Debug\Modele1.dll
+D:\PIU PROJECT\Modele1\bin\Debug\Modele1.pdb
+D:\PIU PROJECT\Modele1\obj\Debug\Modele.csproj.AssemblyReference.cache
+D:\PIU PROJECT\Modele1\obj\Debug\Modele.csproj.CoreCompileInputs.cache
+D:\PIU PROJECT\Modele1\obj\Debug\Modele1.dll
+D:\PIU PROJECT\Modele1\obj\Debug\Modele1.pdb

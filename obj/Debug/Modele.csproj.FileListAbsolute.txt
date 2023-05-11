@@ -1,0 +1,2 @@
+D:\PIU PROJECT\obj\Debug\Modele.csproj.AssemblyReference.cache
+D:\PIU PROJECT\obj\Debug\Modele.csproj.CoreCompileInputs.cache

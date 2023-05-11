@@ -1,0 +1,9 @@
+D:\PIU PROJECT\NivelStocareDate\bin\Debug\NivelStocareDate.dll
+D:\PIU PROJECT\NivelStocareDate\bin\Debug\NivelStocareDate.pdb
+D:\PIU PROJECT\NivelStocareDate\bin\Debug\Modele1.dll
+D:\PIU PROJECT\NivelStocareDate\bin\Debug\Modele1.pdb
+D:\PIU PROJECT\NivelStocareDate\obj\Debug\NivelStocareDate.csproj.AssemblyReference.cache
+D:\PIU PROJECT\NivelStocareDate\obj\Debug\NivelStocareDate.csproj.CoreCompileInputs.cache
+D:\PIU PROJECT\NivelStocareDate\obj\Debug\NivelStocareDate.csproj.CopyComplete
+D:\PIU PROJECT\NivelStocareDate\obj\Debug\NivelStocareDate.dll
+D:\PIU PROJECT\NivelStocareDate\obj\Debug\NivelStocareDate.pdb
