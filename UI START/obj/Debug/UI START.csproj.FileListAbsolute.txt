@@ -17,3 +17,19 @@ D:\PIU PROJECT\UI START\bin\Debug\HotelManager.exe.config
 D:\PIU PROJECT\UI START\bin\Debug\Modele1.pdb
 D:\PIU PROJECT\UI START\bin\Debug\NivelStocareDate.pdb
 D:\PIU PROJECT\UI START\obj\Debug\UI START.csproj.CopyComplete
+D:\PIU PROIECT\UI START\bin\Debug\UI START.exe.config
+D:\PIU PROIECT\UI START\bin\Debug\UI START.exe
+D:\PIU PROIECT\UI START\bin\Debug\UI START.pdb
+D:\PIU PROIECT\UI START\bin\Debug\Modele1.dll
+D:\PIU PROIECT\UI START\bin\Debug\NivelStocareDate.dll
+D:\PIU PROIECT\UI START\bin\Debug\Modele1.pdb
+D:\PIU PROIECT\UI START\bin\Debug\NivelStocareDate.pdb
+D:\PIU PROIECT\UI START\obj\Debug\UI START.csproj.AssemblyReference.cache
+D:\PIU PROIECT\UI START\obj\Debug\UI START.csproj.SuggestedBindingRedirects.cache
+D:\PIU PROIECT\UI START\obj\Debug\UI_START.Form1.resources
+D:\PIU PROIECT\UI START\obj\Debug\UI_START.Properties.Resources.resources
+D:\PIU PROIECT\UI START\obj\Debug\UI START.csproj.GenerateResource.cache
+D:\PIU PROIECT\UI START\obj\Debug\UI START.csproj.CoreCompileInputs.cache
+D:\PIU PROIECT\UI START\obj\Debug\UI START.csproj.CopyComplete
+D:\PIU PROIECT\UI START\obj\Debug\UI START.exe
+D:\PIU PROIECT\UI START\obj\Debug\UI START.pdb
