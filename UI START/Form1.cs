@@ -22,6 +22,7 @@ namespace UI_START
         Fisiertext adminCamere1;
         int nrCamere = 0;
         const int top = 100;
+        List<Label> labelsToDelete = new List<Label>();
         public Form1()
         {
 
@@ -75,6 +76,11 @@ namespace UI_START
                 Controls.Add(numar);
                 Controls.Add(pret);
                 Controls.Add(nr_persoane);
+
+
+                labelsToDelete.Add(numar);
+                labelsToDelete.Add(pret);
+                labelsToDelete.Add(nr_persoane);
             }
             adminCamere1 = new Fisiertext(caleCompletaFisier);
             InitializeComponent();
@@ -88,37 +94,31 @@ namespace UI_START
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void button2_Click(object sender, EventArgs e)
-        {
-            int nrRez;
-            Camera[] cameraRez = new Camera[100];
+            string numeFisier = ConfigurationManager.AppSettings["NumeFisier"];
             string locatieFisierSolutie = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName;
-            string caleCompletaFisier = locatieFisierSolutie + "\\" + "rezervat.txt";
-            Fisiertext rezCamere = new Fisiertext(caleCompletaFisier);
-            cameraRez = rezCamere.GetCamere(out nrRez);
+            string caleCompletaFisier = locatieFisierSolutie + "\\" + numeFisier;
 
-            Controls.Clear();
-            for (int i = 0; i < nrRez; i++)
+            foreach (Label label in labelsToDelete)
+            {
+                Controls.Remove(label);
+                label.Dispose();
+            }
+            labelsToDelete.Clear();
+
+            for (int i = 0; i < nrCamere; i++)
             {
                 Label numar = new Label();
-                numar.Text = cameraRez[i].numar.ToString();
+                numar.Text = (i + 1).ToString();
                 numar.Top = i * 30 + top;
                 numar.Left = 215;
                 Label pret = new Label();
-                pret.Text =cameraRez[i].pret.ToString();
+                pret.Text = camera1[i].pret.ToString();
                 pret.Top = i * 30 + top;
                 pret.Left = 360;
                 Label nr_persoane = new Label();
                 nr_persoane.Top = i * 30 + top;
                 nr_persoane.Left = 480;
-                nr_persoane.Text = cameraRez[i].nr_persoane.ToString();
+                nr_persoane.Text = camera1[i].nr_persoane.ToString();
 
                 numar.BackColor = Color.LightSkyBlue;
                 pret.BackColor = Color.LightSkyBlue;
@@ -130,8 +130,85 @@ namespace UI_START
                 Controls.Add(numar);
                 Controls.Add(pret);
                 Controls.Add(nr_persoane);
+
+                numar.BringToFront();
+                pret.BringToFront();
+                nr_persoane.BringToFront();
+
+                labelsToDelete.Add(numar);
+                labelsToDelete.Add(pret);
+                labelsToDelete.Add(nr_persoane);
             }
+            adminCamere1 = new Fisiertext(caleCompletaFisier);
+            InitializeComponent();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int nrRez;
+            Camera[] cameraRez = new Camera[100];
+            string locatieFisierSolutie = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName;
+            string caleCompletaFisier = Path.Combine(locatieFisierSolutie, "rezervat.txt");
+            Fisiertext rezCamere = new Fisiertext(caleCompletaFisier);
+            cameraRez = rezCamere.GetCamere(out nrRez);
+
+            foreach (Label label in labelsToDelete)
+            {
+                Controls.Remove(label);
+                label.Dispose();
+            }
+            labelsToDelete.Clear();
+
+            for (int i = 0; i < nrRez; i++)
+            {
+                Label numar = new Label();
+                numar.Text = cameraRez[i].numar.ToString();
+                numar.Top = i * 30 + top;
+                numar.Left = 215;
+                numar.BackColor = Color.LightSkyBlue;
+                numar.Width = 50;
+                numar.Visible = true;
+
+                Label pret = new Label();
+                pret.Text = cameraRez[i].pret.ToString();
+                pret.Top = i * 30 + top;
+                pret.Left = 360;
+                pret.BackColor = Color.LightSkyBlue;
+                pret.Width = 50;
+                pret.Visible = true;
+
+                Label nr_persoane = new Label();
+                nr_persoane.Top = i * 30 + top;
+                nr_persoane.Left = 480; // Adjust the Left position for nr_persoane
+                nr_persoane.Text = cameraRez[i].nr_persoane.ToString();
+                nr_persoane.BackColor = Color.LightSkyBlue;
+                nr_persoane.Width = 50;
+                nr_persoane.Visible = true;
+
+                Controls.Add(numar);
+                Controls.Add(pret);
+                Controls.Add(nr_persoane);
+
+                labelsToDelete.Add(numar);
+                labelsToDelete.Add(pret);
+                labelsToDelete.Add(nr_persoane);
+
+                numar.BringToFront();
+                pret.BringToFront();
+                nr_persoane.BringToFront();
+            }
+
+            Refresh();
+        }
+
+
+
+
+
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -155,6 +232,7 @@ namespace UI_START
 
                 //PRELUARE DATE BUTON ADD REZERVARE
                 int top = 100;
+                Console.WriteLine(textBox1.Text + "!!!!!!!!!!!!!!!!!!!!!!!");
                 if (textBox1.Text.Length == 0 || textBox2.Text.Length == 0 || textBox3.Text.Length == 0 || textBox4.Text.Length == 0 || textBox5.Text.Length == 0)
                 {
                     MessageBox.Show("INVALID DATA", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -171,8 +249,7 @@ namespace UI_START
                     //DESCHIDERE FISIER PENTRU CAMERELE LIBERE 
                     string filepathfreedorms = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName + "\\" + "liber.txt";
                     Fisiertext FreeDorms = new Fisiertext(filepathfreedorms);
-                    FreeDorms.ClearFile();
-
+                    
 
 
                     //DESCHIDERE FISIER CAMERE OCUPATE
@@ -183,9 +260,8 @@ namespace UI_START
 
 
                     for (int i = 0; i < nrCamere; i++)
-                    {
-                        camera1[i].p = new Rezervare();
-                    }
+                         camera1[i].p = new Rezervare();
+               
                    //verifica daca camera pe care vreau sa o inchiriez este sau nu rezervata
                     if (camera1[hold_cam].rezervare == false)
                     {
@@ -210,7 +286,7 @@ namespace UI_START
                         MessageBox.Show("Camera este deja rezervata", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                    
-
+                    Refresh();
 
                 }
             }
