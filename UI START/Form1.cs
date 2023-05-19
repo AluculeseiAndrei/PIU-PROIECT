@@ -145,6 +145,60 @@ namespace UI_START
 
         private void button3_Click(object sender, EventArgs e)
         {
+            int nrRez;
+            Camera[] cameraRez = new Camera[100];
+            string locatieFisierSolutie = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName;
+            string caleCompletaFisier = Path.Combine(locatieFisierSolutie, "liber.txt");
+            Fisiertext rezCamere = new Fisiertext(caleCompletaFisier);
+            cameraRez = rezCamere.GetCamere(out nrRez);
+
+            foreach (Label label in labelsToDelete)
+            {
+                Controls.Remove(label);
+                label.Dispose();
+            }
+            labelsToDelete.Clear();
+
+            for (int i = 0; i < nrRez; i++)
+            {
+                Label numar = new Label();
+                numar.Text = cameraRez[i].numar.ToString();
+                numar.Top = i * 30 + top;
+                numar.Left = 215;
+                numar.BackColor = Color.LightSkyBlue;
+                numar.Width = 50;
+                numar.Visible = true;
+
+                Label pret = new Label();
+                pret.Text = cameraRez[i].pret.ToString();
+                pret.Top = i * 30 + top;
+                pret.Left = 360;
+                pret.BackColor = Color.LightSkyBlue;
+                pret.Width = 50;
+                pret.Visible = true;
+
+                Label nr_persoane = new Label();
+                nr_persoane.Top = i * 30 + top;
+                nr_persoane.Left = 480; // Adjust the Left position for nr_persoane
+                nr_persoane.Text = cameraRez[i].nr_persoane.ToString();
+                nr_persoane.BackColor = Color.LightSkyBlue;
+                nr_persoane.Width = 50;
+                nr_persoane.Visible = true;
+
+                Controls.Add(numar);
+                Controls.Add(pret);
+                Controls.Add(nr_persoane);
+
+                labelsToDelete.Add(numar);
+                labelsToDelete.Add(pret);
+                labelsToDelete.Add(nr_persoane);
+
+                numar.BringToFront();
+                pret.BringToFront();
+                nr_persoane.BringToFront();
+            }
+
+            Refresh();
 
         }
         private void button2_Click(object sender, EventArgs e)
@@ -270,6 +324,7 @@ namespace UI_START
                         camera1[hold_cam].p.prenume = customer_secondname;
                         camera1[hold_cam].p.telefon = customer_phone;
                         BusyDorms.ClearFile();
+                        FreeDorms.ClearFile();
                         //POPULARE DATE FISIERE TEXT
                         for (int i = 0; i < nrCamere; i++)
                             if (camera1[i].rezervare == false)
