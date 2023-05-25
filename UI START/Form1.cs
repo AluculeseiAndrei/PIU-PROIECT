@@ -97,14 +97,18 @@ namespace UI_START
             string numeFisier = ConfigurationManager.AppSettings["NumeFisier"];
             string locatieFisierSolutie = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName;
             string caleCompletaFisier = locatieFisierSolutie + "\\" + numeFisier;
-
+           
             foreach (Label label in labelsToDelete)
             {
                 Controls.Remove(label);
                 label.Dispose();
             }
             labelsToDelete.Clear();
-
+            textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "";
+            textBox4.Text = "";
+            textBox5.Text = "";
             for (int i = 0; i < nrCamere; i++)
             {
                 Label numar = new Label();
@@ -145,6 +149,11 @@ namespace UI_START
 
         private void button3_Click(object sender, EventArgs e)
         {
+            textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "";
+            textBox4.Text = "";
+            textBox5.Text = "";
             int nrRez;
             Camera[] cameraRez = new Camera[100];
             string locatieFisierSolutie = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName;
@@ -255,7 +264,11 @@ namespace UI_START
                 pret.BringToFront();
                 nr_persoane.BringToFront();
             }
-
+            textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "";
+            textBox4.Text = "";
+            textBox5.Text = "";
             Refresh();
         }
 
@@ -286,11 +299,14 @@ namespace UI_START
 
                 //PRELUARE DATE BUTON ADD REZERVARE
                 int top = 100;
-                Console.WriteLine(textBox1.Text + "!!!!!!!!!!!!!!!!!!!!!!!");
                 if (textBox1.Text.Length == 0 || textBox2.Text.Length == 0 || textBox3.Text.Length == 0 || textBox4.Text.Length == 0 || textBox5.Text.Length == 0)
                 {
                     MessageBox.Show("INVALID DATA", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
+                    textBox1.Text = "";
+                    textBox2.Text = "";
+                    textBox3.Text = "";
+                    textBox4.Text = "";
+                    textBox5.Text = "";
                 }
                 else
                 {
@@ -299,7 +315,9 @@ namespace UI_START
                     string customer_name = textBox3.Text;
                     string customer_secondname = textBox4.Text;
                     string customer_phone = textBox5.Text;
-
+                    Console.WriteLine(customer_name);
+                    Console.WriteLine(customer_secondname);
+                    Console.WriteLine(customer_phone);
                     //DESCHIDERE FISIER PENTRU CAMERELE LIBERE 
                     string filepathfreedorms = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName + "\\" + "liber.txt";
                     Fisiertext FreeDorms = new Fisiertext(filepathfreedorms);
@@ -340,17 +358,47 @@ namespace UI_START
                         camera1[hold_cam].p.telefon = customer_phone;
                         MessageBox.Show("Camera este deja rezervata", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
-                   
+                    textBox1.Text = "";
+                    textBox2.Text = "";
+                    textBox3.Text = "";
+                    textBox4.Text = "";
+                    textBox5.Text = "";
                     Refresh();
 
                 }
             }
         }
 
+       
+
+        private void button5_Click_1(object sender, EventArgs e)
+        {
+            //DESCHIDERE FISIER PENTRU CAMERELE LIBERE 
+            string filepathfreedorms = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName + "\\" + "liber.txt";
+            Fisiertext FreeDorms = new Fisiertext(filepathfreedorms);
 
 
 
+            //DESCHIDERE FISIER CAMERE OCUPATE
+            string filepathbusydorms = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName + "\\" + "rezervat.txt";
+            Fisiertext BusyDorms = new Fisiertext(filepathbusydorms);
 
-
+            int hold_cam = Convert.ToInt32(textBox1.Text) - 1;
+            if (textBox1.Text.Length == 0)
+                MessageBox.Show("INVALID DATA", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            if (camera1[hold_cam].rezervare == false)
+                MessageBox.Show("CAMERA ESTE DEJA LIBERA!!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else 
+            {
+                camera1[hold_cam].rezervare = false;
+                BusyDorms.ClearFile();
+                FreeDorms.ClearFile();
+                for (int i = 0; i < nrCamere; i++)
+                    if (camera1[i].rezervare == false)
+                        FreeDorms.AddCamera(camera1[i]);
+                    else
+                        BusyDorms.AddCamera(camera1[i]);
+            }
+        }
     }
 }
