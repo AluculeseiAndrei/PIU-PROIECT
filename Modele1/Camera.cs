@@ -42,13 +42,37 @@ namespace Modele
             numar = Convert.ToInt32(dateFisier[0]);
             pret = Convert.ToInt32(dateFisier[1]);
             nr_persoane = Convert.ToInt32(dateFisier[2]);
+            if (dateFisier[3].ToString() == "True")
+                vedere = true;
+            else 
+                vedere = false;
+            if (dateFisier[4].ToString() == "True")
+                televizor = true; 
+            else
+                televizor = false;
+            if (dateFisier[5].ToString() == "True")
+                ac = true;
+            else
+                ac = false;
+            if (dateFisier[6].ToString() == "True")
+                frigider = true;
+            else
+                frigider = false;
+            if (dateFisier[7].ToString() == "True")
+                bucatarie = true;
+            else
+                bucatarie = false;
+            if (dateFisier[8].ToString() == "True")
+                terasa = true;
+            else
+                terasa= false;
         }
         public string ConversieLaSir_PentruFisier()
         {
             int i = 0;
             string obiectPentruFisier = "";
      
-                obiectPentruFisier = string.Format("{1}{0}{2}{0}{3}{0}", SEPARATOR_PRINCIPAL_FISIER,numar, pret,nr_persoane);
+                obiectPentruFisier = string.Format("{1}{0}{2}{0}{3}{0}{4}{0}{5}{0}{6}{0}{7}{0}{8}{0}{9}", SEPARATOR_PRINCIPAL_FISIER, numar, pret , nr_persoane ,vedere,televizor,ac,frigider,bucatarie,terasa);
 
             return obiectPentruFisier;
         }
@@ -64,5 +88,6 @@ namespace Modele
             bucatarie = false;
             terasa = false;
         }
+
     }
 }

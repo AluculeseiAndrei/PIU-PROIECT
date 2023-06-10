@@ -81,10 +81,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HotelManager\HotelManager.csproj">
-      <Project>{327ac6c6-f7bf-4bbe-98cf-42620e7685ae}</Project>
-      <Name>HotelManager</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Modele1\Modele.csproj">
       <Project>{04f83cb9-6bb4-47fc-8cb2-75c4be8dad04}</Project>
       <Name>Modele</Name>

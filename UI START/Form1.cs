@@ -56,14 +56,14 @@ namespace UI_START
                 Label  numar = new Label();
                 numar.Text = (i+1).ToString();
                 numar.Top = i * 30 +top;
-                numar.Left = 215;
+                numar.Left = 285;
                 Label pret=new Label();
                 pret.Text = camera1[i].pret.ToString();
                 pret.Top = i * 30+ top; 
-                pret.Left = 360;
+                pret.Left = 480;
                 Label nr_persoane = new Label();
                 nr_persoane.Top = i * 30 + top;
-                nr_persoane.Left = 480;
+                nr_persoane.Left = 650;
                 nr_persoane.Text = camera1[i].nr_persoane.ToString();
                 
                 numar.BackColor = Color.LightSkyBlue;
@@ -114,14 +114,14 @@ namespace UI_START
                 Label numar = new Label();
                 numar.Text = (i + 1).ToString();
                 numar.Top = i * 30 + top;
-                numar.Left = 215;
+                numar.Left = 285;
                 Label pret = new Label();
                 pret.Text = camera1[i].pret.ToString();
                 pret.Top = i * 30 + top;
-                pret.Left = 360;
+                pret.Left =480;
                 Label nr_persoane = new Label();
                 nr_persoane.Top = i * 30 + top;
-                nr_persoane.Left = 480;
+                nr_persoane.Left = 650;
                 nr_persoane.Text = camera1[i].nr_persoane.ToString();
 
                 numar.BackColor = Color.LightSkyBlue;

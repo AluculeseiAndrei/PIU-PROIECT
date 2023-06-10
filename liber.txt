@@ -1,4 +1,4 @@
-1;150;2;
-2;750;3;
-3;650;3;
-4;1050;2;
+1;500;2;True;False;False;True;False;False
+2;600;3;True;False;False;True;False;False
+3;700;2;True;False;False;True;False;False
+4;550;4;True;False;False;True;False;False

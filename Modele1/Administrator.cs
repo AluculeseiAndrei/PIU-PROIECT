@@ -144,6 +144,7 @@ namespace Modele
                     array[j] = camere[i].numar;
                     j++;
                 }
+            
             return array;
         }   
     }

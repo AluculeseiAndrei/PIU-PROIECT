@@ -1,1 +1,1 @@
-5;1500;10;
+5;800;2;True;False;False;True;False;False

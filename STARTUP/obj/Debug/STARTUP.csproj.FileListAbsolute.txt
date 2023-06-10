@@ -1,0 +1,13 @@
+D:\PIU PROIECT\STARTUP\bin\Debug\STARTUP.exe.config
+D:\PIU PROIECT\STARTUP\bin\Debug\STARTUP.exe
+D:\PIU PROIECT\STARTUP\bin\Debug\STARTUP.pdb
+D:\PIU PROIECT\STARTUP\bin\Debug\Modele1.dll
+D:\PIU PROIECT\STARTUP\bin\Debug\NivelStocareDate.dll
+D:\PIU PROIECT\STARTUP\bin\Debug\Modele1.pdb
+D:\PIU PROIECT\STARTUP\bin\Debug\NivelStocareDate.pdb
+D:\PIU PROIECT\STARTUP\obj\Debug\STARTUP.csproj.AssemblyReference.cache
+D:\PIU PROIECT\STARTUP\obj\Debug\STARTUP.csproj.SuggestedBindingRedirects.cache
+D:\PIU PROIECT\STARTUP\obj\Debug\STARTUP.csproj.CoreCompileInputs.cache
+D:\PIU PROIECT\STARTUP\obj\Debug\STARTUP.csproj.CopyComplete
+D:\PIU PROIECT\STARTUP\obj\Debug\STARTUP.exe
+D:\PIU PROIECT\STARTUP\obj\Debug\STARTUP.pdb
