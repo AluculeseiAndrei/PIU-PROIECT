@@ -350,7 +350,7 @@ namespace UI_START
                          camera1[i].p = new Rezervare();
                
                    //verifica daca camera pe care vreau sa o inchiriez este sau nu rezervata
-                    if (camera1[hold_cam].rezervare == false)
+                    if (camera1[hold_cam].rezervare == false && hold_cam<nrCamere)
                     {
                         camera1[hold_cam].rezervare = true;
                         camera1[hold_cam].p.nume = customer_name;
@@ -367,7 +367,7 @@ namespace UI_START
                     }
                     else
                     {
-                        camera1[hold_cam].rezervare = false;
+                       
                         camera1[hold_cam].p.nume = customer_name;
                         camera1[hold_cam].p.prenume = customer_secondname;
                         camera1[hold_cam].p.telefon = customer_phone;
@@ -391,13 +391,23 @@ namespace UI_START
             //DESCHIDERE FISIER PENTRU CAMERELE LIBERE 
             string filepathfreedorms = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName + "\\" + "liber.txt";
             Fisiertext FreeDorms = new Fisiertext(filepathfreedorms);
-
+           
+            
+            
+            
 
 
             //DESCHIDERE FISIER CAMERE OCUPATE
             string filepathbusydorms = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName + "\\" + "rezervat.txt";
             Fisiertext BusyDorms = new Fisiertext(filepathbusydorms);
-
+            Camera[] aux = new Camera[100];
+            int nraux;
+            aux = BusyDorms.GetCamere(out nraux);
+            for (int i = 0; i < nraux; i++)
+            {
+                camera1[aux[i].numar - 1] = aux[i];
+                camera1[aux[i].numar - 1].rezervare = true;
+            }
             int hold_cam = Convert.ToInt32(textBox1.Text) - 1;
             if (textBox1.Text.Length == 0)
                 MessageBox.Show("INVALID DATA", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
