@@ -13,14 +13,14 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UI_SEARCH;
 using System.Configuration;
-using UI_START;
 namespace UI_SEARCH
 {
-    public partial class Form1 : Form
+    public partial class Form2 : Form
     {
         public int nrcam = 5;
-        public Form1()
+        public Form2()
         {
             InitializeComponent();
         
@@ -51,8 +51,8 @@ namespace UI_SEARCH
             dataTable.Columns.Add("Nr.Camere");
             dataTable.Columns.Add("Nr.Pers");
             dataTable.Columns.Add("Pret");
-     
-            
+
+
             Camera[] camera1 = new Camera[100];
             int nrCamere = 0;
             string numeFisier = ConfigurationManager.AppSettings["NumeFisier"];
@@ -72,26 +72,40 @@ namespace UI_SEARCH
                 a1.camere[i] = camera1[i];
                 i += 1;
             }
-            int aux = Convert.ToInt32(textBox1.Text);
-            array = a1.cauta_camere_facilitati(aux, checkBox1.Checked, checkBox2.Checked, checkBox3.Checked, checkBox4.Checked, checkBox5.Checked, checkBox6.Checked);
+            a1.nr_camere = i;
+            if (textBox1.Text.Length == 0)
+                MessageBox.Show("INVALID DATA", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else
+            {
+                int aux = Convert.ToInt32(textBox1.Text);
+                array = a1.cauta_camere_facilitati(aux, checkBox1.Checked, checkBox2.Checked, checkBox3.Checked, checkBox4.Checked, checkBox5.Checked, checkBox6.Checked);
 
-                
-            int validElementsCount = 0;
-            while (validElementsCount < array.Length && array[validElementsCount] != 0)
-            {
-                validElementsCount++;
+
+                int validElementsCount = 0;
+                while (validElementsCount < array.Length && array[validElementsCount] != 0)
+                {
+                    validElementsCount++;
+                }
+                for (i = 0; i < validElementsCount; i++)
+                {
+                    DataRow row = dataTable.NewRow();
+                    row["Nr.Camere"] = a1.camere[array[i] - 1].numar.ToString();
+                    row["Nr.Pers"] = a1.camere[array[i] - 1].nr_persoane.ToString();
+                    row["Pret"] = a1.camere[array[i] - 1].pret.ToString();
+                    Console.WriteLine(array[i]);
+                    dataTable.Rows.Add(row);
+                }
+                i = 0;
+                dataGridView1.DataSource = dataTable;
+                dataGridView1.Refresh();
+
             }
-            for (i = 0; i <validElementsCount; i++)
-            {
-                DataRow row = dataTable.NewRow();
-                row["Nr.Camere"] = a1.camere[array[i]-1].numar.ToString();
-                row["Nr.Pers"] = a1.camere[array[i]-1].nr_persoane.ToString();
-                row["Pret"] = a1.camere[array[i] - 1].pret.ToString();
-                Console.WriteLine(array[i]);
-                dataTable.Rows.Add(row);
-            }
-            dataGridView1.DataSource = dataTable;
-            dataGridView1.Refresh();
+        }
+
+        private void Acasa_Click(object sender, EventArgs e)
+        {
+
+           
 
         }
     }

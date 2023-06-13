@@ -12,7 +12,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
-
+using UI_SEARCH;
+using ADAUGA_CAMERA;
 namespace UI_START
 {
     public partial class Form1 : Form
@@ -39,7 +40,7 @@ namespace UI_START
 
             cameraRez = rezCamere.GetCamere(out nrRez);
             camera1 = adminCamere.GetCamere(out nrCamere);
-
+           
             for (int i = 0; i < nrRez; i++)
                 camera1[cameraRez[i].numar - 1].rezervare = true;
 
@@ -56,14 +57,14 @@ namespace UI_START
                 Label  numar = new Label();
                 numar.Text = (i+1).ToString();
                 numar.Top = i * 30 +top;
-                numar.Left = 285;
+                numar.Left = 220;
                 Label pret=new Label();
                 pret.Text = camera1[i].pret.ToString();
                 pret.Top = i * 30+ top; 
-                pret.Left = 480;
+                pret.Left = 360;
                 Label nr_persoane = new Label();
                 nr_persoane.Top = i * 30 + top;
-                nr_persoane.Left = 650;
+                nr_persoane.Left =480;
                 nr_persoane.Text = camera1[i].nr_persoane.ToString();
                 
                 numar.BackColor = Color.LightSkyBlue;
@@ -83,6 +84,7 @@ namespace UI_START
                 labelsToDelete.Add(nr_persoane);
             }
             adminCamere1 = new Fisiertext(caleCompletaFisier);
+            camera1 = adminCamere.GetCamere(out nrCamere);
             InitializeComponent();
 
         }
@@ -94,10 +96,14 @@ namespace UI_START
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+
             string numeFisier = ConfigurationManager.AppSettings["NumeFisier"];
             string locatieFisierSolutie = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName;
             string caleCompletaFisier = locatieFisierSolutie + "\\" + numeFisier;
-           
+            Fisiertext adminCamere = new Fisiertext(caleCompletaFisier);
+
+            camera1 = adminCamere.GetCamere(out nrCamere);
             foreach (Label label in labelsToDelete)
             {
                 Controls.Remove(label);
@@ -114,14 +120,14 @@ namespace UI_START
                 Label numar = new Label();
                 numar.Text = (i + 1).ToString();
                 numar.Top = i * 30 + top;
-                numar.Left = 285;
+                numar.Left = 220;
                 Label pret = new Label();
                 pret.Text = camera1[i].pret.ToString();
                 pret.Top = i * 30 + top;
-                pret.Left =480;
+                pret.Left =360;
                 Label nr_persoane = new Label();
                 nr_persoane.Top = i * 30 + top;
-                nr_persoane.Left = 650;
+                nr_persoane.Left = 480;
                 nr_persoane.Text = camera1[i].nr_persoane.ToString();
 
                 numar.BackColor = Color.LightSkyBlue;
@@ -144,6 +150,7 @@ namespace UI_START
                 labelsToDelete.Add(nr_persoane);
             }
             adminCamere1 = new Fisiertext(caleCompletaFisier);
+            Refresh();
             InitializeComponent();
         }
 
@@ -212,6 +219,7 @@ namespace UI_START
         }
         private void button2_Click(object sender, EventArgs e)
         {
+         
             int nrRez;
             Camera[] cameraRez = new Camera[100];
             string locatieFisierSolutie = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName;
@@ -327,9 +335,16 @@ namespace UI_START
                     //DESCHIDERE FISIER CAMERE OCUPATE
                     string filepathbusydorms = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName + "\\" + "rezervat.txt";
                     Fisiertext BusyDorms = new Fisiertext(filepathbusydorms);
-                      
 
 
+                    Camera[] aux = new Camera[100];
+                    int nraux;
+                    aux = BusyDorms.GetCamere(out nraux);
+                    for (int i = 0; i < nraux; i++)
+                    {
+                        camera1[aux[i].numar - 1] = aux[i];
+                        camera1[aux[i].numar - 1].rezervare = true;
+                    }
 
                     for (int i = 0; i < nrCamere; i++)
                          camera1[i].p = new Rezervare();
@@ -399,6 +414,18 @@ namespace UI_START
                     else
                         BusyDorms.AddCamera(camera1[i]);
             }
+        }
+        private void Cauta_Click(object sender, EventArgs e)
+        {
+            Form2 cauta = new Form2(); // Creează o instanță a formularului pentru gestionarea clienților
+            cauta.Show(); // Afișează formularul
+           
+        }
+
+        private void ADD_Click(object sender, EventArgs e)
+        {
+            Form addcam = new ADCAM(); // Creează o instanță a formularului pentru gestionarea clienților
+            addcam.Show(); // Afișează formularul
         }
     }
 }

@@ -3,7 +3,6 @@ D:\PIU PROIECT\UI SEARCH\bin\Debug\UI SEARCH.exe
 D:\PIU PROIECT\UI SEARCH\bin\Debug\UI SEARCH.pdb
 D:\PIU PROIECT\UI SEARCH\obj\Debug\UI SEARCH.csproj.AssemblyReference.cache
 D:\PIU PROIECT\UI SEARCH\obj\Debug\UI SEARCH.csproj.SuggestedBindingRedirects.cache
-D:\PIU PROIECT\UI SEARCH\obj\Debug\UI_SEARCH.Form1.resources
 D:\PIU PROIECT\UI SEARCH\obj\Debug\UI_SEARCH.Properties.Resources.resources
 D:\PIU PROIECT\UI SEARCH\obj\Debug\UI SEARCH.csproj.GenerateResource.cache
 D:\PIU PROIECT\UI SEARCH\obj\Debug\UI SEARCH.csproj.CoreCompileInputs.cache
@@ -14,6 +13,4 @@ D:\PIU PROIECT\UI SEARCH\bin\Debug\NivelStocareDate.dll
 D:\PIU PROIECT\UI SEARCH\bin\Debug\Modele1.pdb
 D:\PIU PROIECT\UI SEARCH\bin\Debug\NivelStocareDate.pdb
 D:\PIU PROIECT\UI SEARCH\obj\Debug\UI SEARCH.csproj.CopyComplete
-D:\PIU PROIECT\UI SEARCH\bin\Debug\UI START.exe
-D:\PIU PROIECT\UI SEARCH\bin\Debug\UI START.pdb
-D:\PIU PROIECT\UI SEARCH\bin\Debug\UI START.exe.config
+D:\PIU PROIECT\UI SEARCH\obj\Debug\UI_SEARCH.Form2.resources

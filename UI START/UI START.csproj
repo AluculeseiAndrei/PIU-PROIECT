@@ -8,10 +8,11 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>UI_START</RootNamespace>
     <AssemblyName>UI START</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -66,6 +67,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -81,6 +83,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ADAUGA CAMERA\ADAUGA CAMERA.csproj">
+      <Project>{caa9fb38-e4ed-4989-8ae4-11f4c305fde5}</Project>
+      <Name>ADAUGA CAMERA</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Modele1\Modele.csproj">
       <Project>{04f83cb9-6bb4-47fc-8cb2-75c4be8dad04}</Project>
       <Name>Modele</Name>
@@ -88,6 +94,10 @@
     <ProjectReference Include="..\NivelStocareDate\NivelStocareDate.csproj">
       <Project>{d6a3f233-2a5a-41d4-b569-a3f8d019f982}</Project>
       <Name>NivelStocareDate</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UI SEARCH\UI SEARCH.csproj">
+      <Project>{279f6f28-dbf0-4067-89d9-96c0c1511ccf}</Project>
+      <Name>UI SEARCH</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
