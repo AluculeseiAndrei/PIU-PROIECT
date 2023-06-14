@@ -69,7 +69,7 @@ namespace Modele
         }
         public string ConversieLaSir_PentruFisier()
         {
-            int i = 0;
+           
             string obiectPentruFisier = "";
      
                 obiectPentruFisier = string.Format("{1}{0}{2}{0}{3}{0}{4}{0}{5}{0}{6}{0}{7}{0}{8}{0}{9}", SEPARATOR_PRINCIPAL_FISIER, numar, pret , nr_persoane ,vedere,televizor,ac,frigider,bucatarie,terasa);

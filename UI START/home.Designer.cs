@@ -1,6 +1,6 @@
 ﻿namespace UI_START
 {
-    partial class Form1
+    partial class home
     {
         /// <summary>
         /// Required designer variable.
@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.ADD = new System.Windows.Forms.Button();
             this.Cauta = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -51,7 +52,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.ADD = new System.Windows.Forms.Button();
+            this.Info = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -61,6 +62,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.Controls.Add(this.Info);
             this.panel1.Controls.Add(this.ADD);
             this.panel1.Controls.Add(this.Cauta);
             this.panel1.Controls.Add(this.button3);
@@ -71,6 +73,17 @@
             this.panel1.Size = new System.Drawing.Size(177, 826);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // ADD
+            // 
+            this.ADD.BackColor = System.Drawing.SystemColors.Info;
+            this.ADD.Location = new System.Drawing.Point(35, 195);
+            this.ADD.Name = "ADD";
+            this.ADD.Size = new System.Drawing.Size(93, 23);
+            this.ADD.TabIndex = 3;
+            this.ADD.Text = "AD.CAM.";
+            this.ADD.UseVisualStyleBackColor = false;
+            this.ADD.Click += new System.EventHandler(this.ADD_Click);
             // 
             // Cauta
             // 
@@ -291,16 +304,16 @@
             this.label1.Text = "Numar camera";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // ADD
+            // Info
             // 
-            this.ADD.BackColor = System.Drawing.SystemColors.Info;
-            this.ADD.Location = new System.Drawing.Point(35, 195);
-            this.ADD.Name = "ADD";
-            this.ADD.Size = new System.Drawing.Size(93, 23);
-            this.ADD.TabIndex = 3;
-            this.ADD.Text = "AD.CAM.";
-            this.ADD.UseVisualStyleBackColor = false;
-            this.ADD.Click += new System.EventHandler(this.ADD_Click);
+            this.Info.BackColor = System.Drawing.SystemColors.Info;
+            this.Info.Location = new System.Drawing.Point(35, 233);
+            this.Info.Name = "Info";
+            this.Info.Size = new System.Drawing.Size(93, 23);
+            this.Info.TabIndex = 4;
+            this.Info.Text = "INFO";
+            this.Info.UseVisualStyleBackColor = false;
+            this.Info.Click += new System.EventHandler(this.Info_Click);
             // 
             // Form1
             // 
@@ -348,6 +361,7 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button Cauta;
         private System.Windows.Forms.Button ADD;
+        private System.Windows.Forms.Button Info;
     }
 }
 

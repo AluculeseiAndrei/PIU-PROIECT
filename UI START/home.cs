@@ -16,7 +16,7 @@ using UI_SEARCH;
 using ADAUGA_CAMERA;
 namespace UI_START
 {
-    public partial class Form1 : Form
+    public partial class home : Form
     {
 
         Camera[] camera1 = new Camera[100];
@@ -24,7 +24,7 @@ namespace UI_START
         int nrCamere = 0;
         const int top = 100;
         List<Label> labelsToDelete = new List<Label>();
-        public Form1()
+        public home()
         {
 
             int nrRez;
@@ -306,7 +306,7 @@ namespace UI_START
                 //VERIFICAREA DATELOR SA NU FIE GOALE
 
                 //PRELUARE DATE BUTON ADD REZERVARE
-                int top = 100;
+               
                 if (textBox1.Text.Length == 0 || textBox2.Text.Length == 0 || textBox3.Text.Length == 0 || textBox4.Text.Length == 0 || textBox5.Text.Length == 0)
                 {
                     MessageBox.Show("INVALID DATA", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -427,7 +427,7 @@ namespace UI_START
         }
         private void Cauta_Click(object sender, EventArgs e)
         {
-            Form2 cauta = new Form2(); // Creează o instanță a formularului pentru gestionarea clienților
+            Form cauta = new Form2(); // Creează o instanță a formularului pentru gestionarea clienților
             cauta.Show(); // Afișează formularul
            
         }
@@ -436,6 +436,14 @@ namespace UI_START
         {
             Form addcam = new ADCAM(); // Creează o instanță a formularului pentru gestionarea clienților
             addcam.Show(); // Afișează formularul
+        }
+
+        private void Info_Click(object sender, EventArgs e)
+        {
+            CAMERADATA data = new CAMERADATA();
+            data.Show();
+            this.Hide();
+          
         }
     }
 }

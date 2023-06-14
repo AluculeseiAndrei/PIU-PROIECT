@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using UI_SEARCH;
 using System.Configuration;
+
 namespace UI_SEARCH
 {
     public partial class Form2 : Form
@@ -25,7 +26,7 @@ namespace UI_SEARCH
             InitializeComponent();
         
 
-            int i = 0;
+           
             DataTable dataTable = new DataTable();
             dataTable.Columns.Add("Nr.Camere");
             dataTable.Columns.Add("Nr.Pers");
@@ -38,6 +39,7 @@ namespace UI_SEARCH
             dataGridView1.Columns["Nr.Camere"].ReadOnly = true;
             dataGridView1.Columns["Nr.Pers"].ReadOnly = true;
             dataGridView1.Columns["Pret"].ReadOnly = true;
+
             
         }
 
@@ -104,7 +106,7 @@ namespace UI_SEARCH
 
         private void Acasa_Click(object sender, EventArgs e)
         {
-
+            
            
 
         }
