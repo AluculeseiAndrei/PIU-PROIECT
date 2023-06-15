@@ -87,15 +87,17 @@ namespace ADAUGA_CAMERA
                 Pretbox.BackColor = Color.White;
                 Nrpersoanebox.BackColor = Color.White;
                 MessageBox.Show("Operațiunea a fost efectuată cu succes!", "Succes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                adminCamere.ClearFile();
+                for (int j = 0; j <= i; j++)
+                    adminCamere.AddCamera(camera1[j]);
+                string filepathfreedorms = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName + "\\" + "liber.txt";
 
+                Fisiertext FreeDorms = new Fisiertext(filepathfreedorms);
+                FreeDorms.AddCamera(camera1[i]);
             }
 
             //completare fisier camere libere
-            for (int j = 0; j <= i; j++)
-                adminCamere.AddCamera(camera1[j]);
-            string filepathfreedorms = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName + "\\" + "liber.txt";
-            Fisiertext FreeDorms = new Fisiertext(filepathfreedorms);
-            FreeDorms.AddCamera(camera1[i]);
+            
 
         }
 

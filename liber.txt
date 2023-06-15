@@ -1,4 +1,7 @@
-1;500;2;True;False;False;True;False;False
-2;600;3;True;False;False;True;False;False
-3;700;2;True;False;False;True;False;False
-4;550;4;True;False;False;True;False;False
+1;600;1;True;True;True;True;True;True
+2;500;2;True;True;False;True;False;False
+3;600;3;False;False;False;True;False;False
+4;700;2;False;True;True;True;False;False
+6;800;2;True;True;True;True;False;True
+7;1000;4;True;True;True;True;True;True
+8;1000;10;True;True;True;True;True;True
